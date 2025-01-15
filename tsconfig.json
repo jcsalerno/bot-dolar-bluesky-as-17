@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "outDir": "./dist"
+    },
+    "include": [
+      "dolar-as-5.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
+  
