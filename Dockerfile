@@ -29,5 +29,5 @@ COPY --from=build /app/node_modules /app/node_modules
 # Expôr a porta que a aplicação vai utilizar (por padrão, no Node.js é a 3000)
 EXPOSE 3000
 
-# Comando para iniciar a aplicação
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/dolar-as-5.js"]
+
