@@ -5,7 +5,7 @@
   "main": "dist/dolar-as-5.mjs",
   "type": "module",
   "scripts": {
-    "start": "node dist/dolar-as-5.js",
+    "start": "node --experimental-modules dist/dolar-as-5.mjs",
     "build": "tsc",
     "dev": "tsc --watch"
   },
