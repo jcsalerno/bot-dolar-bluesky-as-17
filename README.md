@@ -8,5 +8,9 @@ O valor do dólar é obtido através de uma API externa e a postagem é feita no
 - Obtenção da cotação do dólar em tempo real utilizando uma API externa.
 - Publicação do valor do dólar no BlueSky.
 - Agendamento para rodar automaticamente todos os dias às 17h (utilizando um cron job).
+
+ ## Link da Rede Social
+ 
+ - https://bsky.app/profile/dolar-as-17.bsky.social
  
  ![alt text](image.png)
