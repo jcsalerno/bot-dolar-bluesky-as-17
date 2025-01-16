@@ -78,7 +78,7 @@ async function main() {
 }
 
 
-cron.schedule('10 18 * * *', async () => {
+cron.schedule('15 18 * * *', async () => {
   try {
     await main();
   } catch (error) {
@@ -86,7 +86,7 @@ cron.schedule('10 18 * * *', async () => {
   }
 });
 
-console.log('Cron job agendado para rodar todos os dias às 17h');*/
+console.log('Cron job agendado para rodar todos os dias às 17h');
 
 
 main();
