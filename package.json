@@ -2,7 +2,7 @@
   "name": "project_dolar",
   "version": "1.0.0",
   "description": "Bot que publica a cotação do dólar diariamente no BlueSky.",
-  "main": "dist/dolar-as-5.js",
+  "main": "dist/dolar-as-5.mjs",
   "type": "module",
   "scripts": {
     "start": "node dist/dolar-as-5.js",
