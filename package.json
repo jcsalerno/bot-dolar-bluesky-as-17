@@ -2,14 +2,11 @@
   "name": "project_dolar",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/dolar-as-5.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/dolar-as-5.js",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@atproto/api": "^0.13.27",
     "cron": "^3.5.0",
@@ -19,8 +16,8 @@
   },
   "type": "module",
   "devDependencies": {
+    "@types/node": "^22.10.7",
     "@types/node-cron": "^3.0.11",
-    "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }
 }
