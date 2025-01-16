@@ -78,7 +78,7 @@ async function main() {
 }
 
 
-cron.schedule('15 18 * * *', async () => {
+cron.schedule('22 18 * * *', async () => {
   try {
     await main();
   } catch (error) {

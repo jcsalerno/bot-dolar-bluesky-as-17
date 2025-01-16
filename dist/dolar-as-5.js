@@ -1,5 +1,6 @@
 import { BskyAgent } from '@atproto/api';
 import * as dotenv from 'dotenv';
+import cron from 'node-cron';
 dotenv.config();
 async function fetchDollarValue() {
     try {
@@ -61,17 +62,13 @@ async function main() {
         console.error('Erro:', error);
     }
 }
-/*
-  Descomente a parte abaixo para rodar o cron job, caso deseje agendar a execução do código diariamente às 17h.
-*/
-/*cron.schedule('0 17 * * *', async () => {
-  try {
-    await main();
-  } catch (error) {
-    console.error('Erro ao executar o cron job:', error);
-  }
+cron.schedule('22 18 * * *', async () => {
+    try {
+        await main();
+    }
+    catch (error) {
+        console.error('Erro ao executar o cron job:', error);
+    }
 });
-
-console.log('Cron job agendado para rodar todos os dias às 17h');*/
-// Chamada manual para testar a execução
+console.log('Cron job agendado para rodar todos os dias às 17h');
 main();

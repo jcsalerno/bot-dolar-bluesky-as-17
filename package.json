@@ -1,11 +1,13 @@
 {
   "name": "project_dolar",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bot que publica a cotação do dólar diariamente no BlueSky.",
   "main": "dist/dolar-as-5.js",
+  "type": "module",
   "scripts": {
     "start": "node dist/dolar-as-5.js",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "tsc --watch"
   },
   "dependencies": {
     "@atproto/api": "^0.13.27",
@@ -14,7 +16,6 @@
     "node-cron": "^3.0.3",
     "node-fetch": "^3.3.2"
   },
-  "type": "module",
   "devDependencies": {
     "@types/node": "^22.10.7",
     "@types/node-cron": "^3.0.11",
