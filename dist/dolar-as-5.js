@@ -38,20 +38,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const api_1 = require("@atproto/api");
 const dotenv = __importStar(require("dotenv"));
-const node_fetch_1 = __importDefault(require("node-fetch"));
 const node_cron_1 = __importDefault(require("node-cron"));
 dotenv.config();
-// Função para obter o valor do dólar
 async function fetchDollarValue() {
     try {
-        const response = await (0, node_fetch_1.default)(process.env.DOLLAR_API_URL);
-        // Tentar converter a resposta JSON em um tipo conhecido
+        const { default: fetch } = await Promise.resolve().then(() => __importStar(require('node-fetch')));
+        const response = await fetch(process.env.DOLLAR_API_URL);
         const data = await response.json();
-        // Verificar se a resposta possui a estrutura correta
         if (data && data.conversion_rates && typeof data.conversion_rates.BRL === 'number') {
-            // Acessar o valor do dólar em relação ao BRL e arredondar para 2 casas decimais
             const dollarValue = data.conversion_rates.BRL.toFixed(2);
-            return parseFloat(dollarValue); // Retorna o valor como número com 2 casas decimais
+            return parseFloat(dollarValue);
         }
         else {
             throw new Error('Resposta da API não contém as taxas de conversão corretamente.');
@@ -62,20 +58,17 @@ async function fetchDollarValue() {
         throw new Error('Não foi possível obter o valor do dólar');
     }
 }
-// Função para fazer o post no BlueSky
 async function postToBlueSky(postMessage) {
     const agent = new api_1.BskyAgent({
         service: 'https://bsky.social',
     });
     try {
-        // Autenticação no BlueSky
         console.log('Tentando login...');
         await agent.login({
             identifier: process.env.BLUESKY_USERNAME,
             password: process.env.BLUESKY_PASSWORD,
         });
         console.log('Login bem-sucedido!');
-        // Criar o post no BlueSky
         console.log('Criando post: ', postMessage);
         const response = await agent.post({
             text: postMessage,
@@ -87,22 +80,17 @@ async function postToBlueSky(postMessage) {
         console.error('Erro ao criar o post:', error);
     }
 }
-// Função principal que combina as duas operações
 async function main() {
     try {
-        // Obter o valor do dólar
         const dollarValue = await fetchDollarValue();
         console.log('Valor do dólar:', dollarValue);
-        // Criar a mensagem para o post
         const postMessage = `O valor do dólar hoje é: R$ ${dollarValue}`;
-        // Postar no BlueSky
         await postToBlueSky(postMessage);
     }
     catch (error) {
         console.error('Erro:', error);
     }
 }
-// Agendando a execução do cron job todos os dias às 17h
 node_cron_1.default.schedule('0 17 * * *', async () => {
     try {
         await main();
