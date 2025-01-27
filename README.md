@@ -1,4 +1,4 @@
-# Dólar às 5 - Bot de Cotação de Dólar no BlueSky
+# Dólar às 17 horas - Bot de Cotação de Dólar no BlueSky
 
 Este projeto é um bot que publica diariamente a cotação do dólar no BlueSky. 
 O valor do dólar é obtido através de uma API externa e a postagem é feita no BlueSky às 17h, todos os dias.
